@@ -9,6 +9,7 @@ def obtener_informacion_ubicacion(geonames_username, lugar):
             ubicacion = data["geonames"][0]
             ciudad = ubicacion['name']
             pais = ubicacion['countryCode']
+
             return ciudad, pais
         else:
             print("Ubicación no encontrada.")
@@ -27,7 +28,7 @@ def obtener_datos_meteorologicos(api_key, ciudad, pais):
             temperatura = data["main"]["temp"] - 273.15  # Convertir de Kelvin a Celsius
             condiciones_climaticas = data["weather"][0]["description"]
             print(f"Temperatura en {ciudad}, {pais}: {temperatura:.2f}°C")
-            print(f"Condiciones Climáticas en {ciudad}, {pais}: {condiciones_climaticas}")
+            print(f"Condiciones Climáticas en {ciudad}, {pais}, {condiciones_climaticas}")
         else:
             print("Datos meteorológicos no disponibles.")
     except Exception as e:
@@ -35,11 +36,11 @@ def obtener_datos_meteorologicos(api_key, ciudad, pais):
 
 if __name__ == "__main__":
     #tu_usuario_de_geonames
-    geonames_username = "" #tu usuario en geoname
-    lugar = "Mexico City"  # Cambia esto a la ubicación que desees consultar
+    geonames_username = "pxnchfermon" #tu usuario en geoname
+    lugar = "London"  # Cambia esto a la ubicación que desees consultar
     ciudad, pais = obtener_informacion_ubicacion(geonames_username, lugar)
 
     if ciudad and pais:
         #tu_api_key_de_openweathermap
-        api_key = "152b1599f3e42d9d0f559bf3cf348a2b"
+        api_key = "f2baa89bb6115e2d386e763a36d74300"
         obtener_datos_meteorologicos(api_key, ciudad, pais)
