@@ -28,6 +28,6 @@ def obtener_datos_meteorologicos(api_key, ciudad):
 
 if __name__ == "__main__":
     #tu_api_key_de_openweathermap
-    api_key = "f2baa89bb6115e2d386e763a36d74300" #tu api key
+    api_key = "52478600bb1675e4cb1fd565206e8e90" #tu api key
     ciudad = "London"  # Cambia esto a la ciudad que desees consultar
     obtener_datos_meteorologicos(api_key, ciudad)
